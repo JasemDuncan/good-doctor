@@ -72,5 +72,4 @@ group :test do
 end
 
 # custom gems
-gem 'webpacker'
-gem 'react-rails'
+gem 'rack-cors'
