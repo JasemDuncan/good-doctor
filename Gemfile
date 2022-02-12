@@ -73,3 +73,4 @@ end
 
 # custom gems
 gem 'rack-cors'
+gem 'jwt', '~> 2.3'

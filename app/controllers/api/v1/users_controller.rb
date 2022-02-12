@@ -1,14 +1,14 @@
-class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+class Api::V1::UsersController < AuthenticationController
+  before_action :authorized, only: [ :auto_login ]
 
   # GET /users or /users.json
-  def index
-    @users = User.all
-  end
+  # def index
+  #   @users = User.all
+  # end
 
   # GET /users/1 or /users/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /users/new
   # def new
@@ -20,18 +20,40 @@ class Api::V1::UsersController < ApplicationController
   # end
 
   # POST /users or /users.json
-  def create
-    @user = User.new(user_params)
+  def register
+    @user = User.create(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.valid?
+      token = encode_token({ user_id: @user.id })
+      render json: { user: @user, token: token }
+    else
+      render json: { error: "User not Registered" }
     end
+  end
+
+  def login
+    @user = User.find_by(username: params[:username])
+
+    if @user && @user.authenticate(params[:password])
+      token = encode_token({ user_id: @user.id })
+      render json: { user: @user, token: token }
+    else
+      render json: { error: "User not Registered" }
+    end
+  end
+
+  def auto_login
+    render json: @user
+  end
+
+    # respond_to do |format|
+    #   if @user.save
+    #     format.json { render :show, status: :created, location: @user }
+    #   else
+    #     format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /users/1 or /users/1.json
@@ -59,9 +81,9 @@ class Api::V1::UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+    # def set_user
+    #   @user = User.find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def user_params
