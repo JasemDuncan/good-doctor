@@ -1,5 +1,6 @@
 class Api::V1::UsersController < AuthenticationController
   before_action :authorized, only: [ :auto_login ]
+  skip_before_action :verify_authenticity_token
 
   # GET /users or /users.json
   # def index
@@ -20,7 +21,7 @@ class Api::V1::UsersController < AuthenticationController
   # end
 
   # POST /users or /users.json
-  def register
+  def create
     @user = User.create(user_params)
 
     if @user.valid?
@@ -54,7 +55,7 @@ class Api::V1::UsersController < AuthenticationController
     #     format.json { render json: @user.errors, status: :unprocessable_entity }
     #   end
     # end
-  end
+  # end
 
   # PATCH/PUT /users/1 or /users/1.json
   # def update

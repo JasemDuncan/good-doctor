@@ -1,9 +1,11 @@
-class Api::V1::DoctorsController < ApplicationController
+class Api::V1::DoctorsController < AuthenticationController
+  before_action :authorized
   before_action :set_doctor, only: %i[ show edit update destroy ]
 
   # GET /doctors or /doctors.json
   def index
     @doctors = Doctor.all
+    render json: @doctors
   end
 
   # GET /doctors/1 or /doctors/1.json
