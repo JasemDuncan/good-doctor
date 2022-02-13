@@ -1,6 +1,7 @@
 import Nav from './components/Nav';
-import Carousel from './components/Carousel';
+
 import './App.css';
+import BootstrapCarousel from './components/BootstrapCarousel';
 
 
 
@@ -31,7 +32,7 @@ function App() {
               </div>
             </div>
             <div className='listDoctors'>            
-              <Carousel/>
+              <BootstrapCarousel/>
             </div>
           </div>
 
