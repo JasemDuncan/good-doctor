@@ -1,8 +1,8 @@
 import Nav from './components/Nav';
-
+// import Test from './components/Test';
 import './App.css';
 import BootstrapCarousel from './components/BootstrapCarousel';
-
+// import Button from 'react-bootstrap/Button';
 
 
 function App() {
@@ -25,14 +25,14 @@ function App() {
           <div className='col-10 latestModels'>
             <div className='titleContainer'>
               <div>
-                LATEST MODELS
+                LATEST MODELS                
               </div>
               <div>
                 Please select a Doctor
               </div>
             </div>
             <div className='listDoctors'>            
-              <BootstrapCarousel/>
+              <BootstrapCarousel/>              
             </div>
           </div>
 
