@@ -3,6 +3,7 @@ import Nav from './components/Nav';
 import './App.css';
 import BootstrapCarousel from './components/BootstrapCarousel';
 // import Button from 'react-bootstrap/Button';
+import dots from './components/dots.png';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
           <div className='col-2 logoNavContainer'>
             <div className='row logoContainer'>
               <div>
-                GOOD DOCTOR
+                Good Doctor
               </div>
             </div>
             <div className='row'>
@@ -24,11 +25,14 @@ function App() {
           </div>
           <div className='col-10 latestModels'>
             <div className='titleContainer'>
-              <div>
-                LATEST MODELS                
+              <div className='titleDoctors'>
+                LATEST DOCTORS                
+              </div>
+              <div className='titleDoctorsDescription'>
+                Please select a Doctor
               </div>
               <div>
-                Please select a Doctor
+                <img src={dots} />
               </div>
             </div>
             <div className='listDoctors'>            
