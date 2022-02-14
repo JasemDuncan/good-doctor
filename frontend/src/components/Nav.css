@@ -1,0 +1,14 @@
+nav {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  padding: 5px 0 5px 20px;
+  font-weight: bold;
+  color: #464646;
+  line-height: 3;
+}
