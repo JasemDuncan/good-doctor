@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <nav>
       <NavLink 
-        to="/doctors"
+        to="/"
         style={({ isActive }) => ({ 
           background: isActive ? '#98bf10' : 'none',
           color: isActive ? '#fff' : 'none'
