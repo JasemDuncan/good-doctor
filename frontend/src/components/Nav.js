@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <nav>
       <NavLink 
-        to="/doctors"
+        to="/"
         style={({ isActive }) => ({ 
           background: isActive ? '#98bf10' : 'none',
           color: isActive ? '#fff' : 'none'
@@ -40,6 +40,20 @@ const Nav = () => {
           color: isActive ? '#fff' : 'none'
         })}
       >Delete Doctor</NavLink>
+      <NavLink 
+        to="/login"
+        style={({ isActive }) => ({ 
+          background: isActive ? '#98bf10' : 'none',
+          color: isActive ? '#fff' : 'none'
+        })}
+      >Login</NavLink>
+      <NavLink 
+        to="/register"
+        style={({ isActive }) => ({ 
+          background: isActive ? '#98bf10' : 'none',
+          color: isActive ? '#fff' : 'none'
+        })}
+      >Register</NavLink>
     </nav>
   )
 }
