@@ -6,6 +6,8 @@ import AppointmentForm from './pages/AppointmentForm';
 import DeleteDoctor from './pages/DeleteDoctor';
 import Doctors from './pages/Doctors';
 import MyAppointments from './pages/MyAppointments';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
             <Route path="/myAppointments" element={<MyAppointments />} />
             <Route path="/addDoctor" element={<AddDoctor />} />
             <Route path="/deleteDoctor" element={<DeleteDoctor />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             {/* <Route path="/" exact={true} element={<Home />} /> */}
           </Routes>
         </div>
