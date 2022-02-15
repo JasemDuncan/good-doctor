@@ -1,6 +1,4 @@
-import Nav from './components/Nav';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
 import AddDoctor from './pages/AddDoctor';
 import AppointmentForm from './pages/AppointmentForm';
 import DeleteDoctor from './pages/DeleteDoctor';
