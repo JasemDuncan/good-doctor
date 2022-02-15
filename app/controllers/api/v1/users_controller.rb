@@ -39,7 +39,7 @@ class Api::V1::UsersController < AuthenticationController
       token = encode_token({ user_id: @user.id })
       render json: { user: @user, token: token }
     else
-      render json: { error: "User not Registered" }
+      render json: { error: "Login failed" }
     end
   end
 
