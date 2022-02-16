@@ -1,14 +1,21 @@
-import React from 'react'
-import Carousel from 'react-bootstrap/Carousel'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Carousel from 'react-bootstrap/Carousel';
 import doctor from './m.png';
 import facebook from './f.png';
 import twitter from './t.png';
 import instagram from './i.png';
 import dots from './dots.png';
+import { getDoctors } from '../redux/doctors/doctors';
 
 
-
-export default function BootstrapCarousel() {
+const BootstrapCarousel=() => {
+    //for Doctors
+    const dispatch= useDispatch();
+    const doctors = useSelector((state)=> state.doctorsReducer);
+    useEffect(()=>{
+        if(doctors.length==0) dispatch(getDoctors());
+    });
     return (
         <div>
             <Carousel variant="dark">
@@ -40,6 +47,13 @@ export default function BootstrapCarousel() {
                                 <img src={doctor} alt="Doctor" />
                             </div>                            
                             <div className='nameDoctor'> VESPA C20</div>
+                            {
+                                doctors.map((item)=> {
+                                    return(
+                                        <div key={item.id}> {item.name}</div>
+                                    );
+                                })
+                            }
                             <div>
                                 <img src={dots}/>
                             </div>
@@ -58,3 +72,5 @@ export default function BootstrapCarousel() {
         </div>
     )
 }
+
+export default BootstrapCarousel;
