@@ -42,20 +42,30 @@ const BootstrapCarousel = () => {
 
     function createCarousel() {
         console.log("bing function");
-        for (let i = 0; i < CarouselItems.length; i++) {
+        CarouselItems.map((item) => {
 
-            for (let j = 0; j < CarouselItems[i].length; j++) {
-                <Carousel variant="dark">
-                    <Carousel.Item className='carousel-inner'>
-                        <div className='containerCarousel'>
-                            {CarouselItems[i][j].name}
-                            {console.log("jasem")}
-                        </div>
-                    </Carousel.Item>
-                </Carousel>
-            }
 
-        }
+            // for (let i = 0; i < CarouselItems.length; i++) {
+            item.map((i) => {
+                <div>duncan</div>
+                console.log(i.name);
+            });
+            console.log(item[0]);
+            console.log(item);
+            // for (let j = 0; j < CarouselItems[i].length; j++) {
+            <Carousel variant="dark">
+                <Carousel.Item className='carousel-inner'>
+                    <div className='containerCarousel'>
+                        {/* {CarouselItems[i][j].name} */}
+                        {console.log("jasem")}
+                    </div>
+                </Carousel.Item>
+            </Carousel>
+            // }
+
+            // }
+
+        });
         console.log("end function");
     }
 
@@ -89,10 +99,52 @@ const BootstrapCarousel = () => {
                         }
                     </div>
                 </Carousel.Item>
-            </Carousel> */}
+             </Carousel> */
+                <Carousel variant="dark">
+                    {
+                        CarouselItems.map((item) => {
+                            return (
+                                <Carousel.Item className='carousel-inner'>
+                                    <div className='containerCarousel'>
+                                        {
+                                            item.map((i) => {
+                                                return (
+
+                                                    <div className='doctorBanner' key={i.id}>
+                                                        <div>
+                                                            <img src={doctor} alt="Doctor" />
+                                                        </div>
+                                                        <div className='nameDoctor' > {i.name}</div>
+                                                        <div>
+                                                            <img src={dots} />
+                                                        </div>
+                                                        <div className='descriptionDoctor'>
+                                                            {i.specialization}
+                                                        </div>
+                                                        <div>
+                                                            <img src={facebook} />
+                                                            <img src={twitter} />
+                                                            <img src={instagram} />
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                </Carousel.Item>
+
+                            )
+                        })
+                    }
+                </Carousel>
 
 
-            {createCarousel()}
+            }
+
+
+
+
+
 
 
         </div>
