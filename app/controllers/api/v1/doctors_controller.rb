@@ -1,6 +1,6 @@
 class Api::V1::DoctorsController < AuthenticationController
-  before_action :authorized
-  before_action :set_doctor, only: %i[ show edit update destroy ]
+  # before_action :authorized
+  before_action :set_doctor, only: %i[ create show edit update destroy ]
 
   # GET /doctors or /doctors.json
   def index
