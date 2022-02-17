@@ -14,7 +14,7 @@ export const getDoctors = () => async (dispatch) => {
         const id = doctor.id;
         const name= doctor.name;
         const age=doctor.age;
-        const specializaion=doctor.specializaion;
+        const specialization=doctor.specialization;
         const bookingFee=doctor.bookingFee;
         const biography=doctor.biography;
         const create_at=doctor.create_at;
@@ -24,7 +24,7 @@ export const getDoctors = () => async (dispatch) => {
             id,
             name,
             age,
-            specializaion,
+            specialization,
             bookingFee,
             biography,
             create_at,

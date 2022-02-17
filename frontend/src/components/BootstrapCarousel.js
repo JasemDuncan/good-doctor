@@ -9,66 +9,92 @@ import dots from './dots.png';
 import { getDoctors } from '../redux/doctors/doctors';
 
 
-const BootstrapCarousel=() => {
+const BootstrapCarousel = () => {
     //for Doctors
-    const dispatch= useDispatch();
-    const doctors = useSelector((state)=> state.doctorsReducer);
-    useEffect(()=>{
-        if(doctors.length==0) dispatch(getDoctors());
+    const dispatch = useDispatch();
+    const doctors = useSelector((state) => state.doctorsReducer);
+    useEffect(() => {
+        if (doctors.length == 0) dispatch(getDoctors());
     });
+
+    let CarouselItems = [];
+    const LogitudPedazos = 3;
+    for (let i = 0; i < doctors.length; i += LogitudPedazos) {
+        let Pedazo = doctors.slice(i, i + LogitudPedazos);
+        CarouselItems.push(Pedazo);
+    }
+
+    console.log("begin");
+    console.log(CarouselItems);
+
+    for (let i = 0; i < CarouselItems.length; i++) {
+        console.log("Carousel");
+        console.log(CarouselItems[i]);
+        for (let j = 0; j < CarouselItems[i].length; j++) {
+            console.log("CarouselItem");
+            console.log(CarouselItems[i][j].name);
+        }
+    }
+    if (doctors.length > 0) {
+        console.log(doctors)
+    }
+    console.log("end");
+
+    function createCarousel() {
+        console.log("bing function");
+        for (let i = 0; i < CarouselItems.length; i++) {
+
+            for (let j = 0; j < CarouselItems[i].length; j++) {
+                <Carousel variant="dark">
+                    <Carousel.Item className='carousel-inner'>
+                        <div className='containerCarousel'>
+                            {CarouselItems[i][j].name}
+                            {console.log("jasem")}
+                        </div>
+                    </Carousel.Item>
+                </Carousel>
+            }
+
+        }
+        console.log("end function");
+    }
+
     return (
         <div>
-            <Carousel variant="dark">
+            {/* <Carousel variant="dark">
                 <Carousel.Item className='carousel-inner'>
                     <div className='containerCarousel'>
-                        <div className='doctorBanner'>
-                            <div>
-                                <img src={doctor} alt="Doctor" />
-                            </div>                            
-                            <div className='nameDoctor'> VESPA C20</div>
-                            <div>
-                                <img src={dots}/>
-                            </div>
-                            <div className='descriptionDoctor'>
-                            The VESPA C20 is a stunning moped with a modern electonic system and more.
-                            </div>
-                            <div>
-                                <img src={facebook}/>
-                                <img src={twitter} />
-                                <img src={instagram} />
-                            </div> 
-                        </div>
+                        {
+                            doctors.map((item) => {
+                                return (
+                                    <div className='doctorBanner' key={item.id}>
+                                        <div>
+                                            <img src={doctor} alt="Doctor" />
+                                        </div>
+                                        <div className='nameDoctor' > {item.name}</div>
+                                        <div>
+                                            <img src={dots} />
+                                        </div>
+                                        <div className='descriptionDoctor'>
+                                            {item.specialization}
+                                        </div>
+                                        <div>
+                                            <img src={facebook} />
+                                            <img src={twitter} />
+                                            <img src={instagram} />
+                                        </div>
+                                    </div>
+                                );
+                            })
+                        }
                     </div>
                 </Carousel.Item>
-                <Carousel.Item className='carousel-inner'>
-                    <div className='containerCarousel'>
-                        <div className='doctorBanner'>
-                            <div>
-                                <img src={doctor} alt="Doctor" />
-                            </div>                            
-                            <div className='nameDoctor'> VESPA C20</div>
-                            {
-                                doctors.map((item)=> {
-                                    return(
-                                        <div key={item.id}> {item.name}</div>
-                                    );
-                                })
-                            }
-                            <div>
-                                <img src={dots}/>
-                            </div>
-                            <div className='descriptionDoctor'>
-                            The VESPA C20 is a stunning moped with a modern electonic system and more.
-                            </div>
-                            <div>
-                                <img src={facebook}/>
-                                <img src={twitter} />
-                                <img src={instagram} />
-                            </div> 
-                        </div>
-                    </div>
-                </Carousel.Item>                
-            </Carousel>
+            </Carousel> */}
+
+
+            {createCarousel()}
+
+
         </div>
     )
 }
