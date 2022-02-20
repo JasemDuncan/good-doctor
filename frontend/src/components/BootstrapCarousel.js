@@ -24,52 +24,7 @@ const BootstrapCarousel = () => {
         let Pedazo = doctors.slice(i, i + LogitudPedazos);
         CarouselItems.push(Pedazo);
     }
-
-    console.log("begin");
-    console.log(CarouselItems);
-
-    for (let i = 0; i < CarouselItems.length; i++) {
-        console.log("Carousel");
-        console.log(CarouselItems[i]);
-        for (let j = 0; j < CarouselItems[i].length; j++) {
-            console.log("CarouselItem");
-            console.log(CarouselItems[i][j].name);
-        }
-    }
-    if (doctors.length > 0) {
-        console.log(doctors)
-    }
-    console.log("end");
-
-    function createCarousel() {
-        console.log("bing function");
-        CarouselItems.map((item) => {
-
-
-            // for (let i = 0; i < CarouselItems.length; i++) {
-            item.map((i) => {
-                <div>duncan</div>
-                console.log(i.name);
-            });
-            console.log(item[0]);
-            console.log(item);
-            // for (let j = 0; j < CarouselItems[i].length; j++) {
-            <Carousel variant="dark">
-                <Carousel.Item className='carousel-inner'>
-                    <div className='containerCarousel'>
-                        {/* {CarouselItems[i][j].name} */}
-                        {console.log("jasem")}
-                    </div>
-                </Carousel.Item>
-            </Carousel>
-            // }
-
-            // }
-
-        });
-        console.log("end function");
-    }
-
+ 
     return (
         <div>
             {
