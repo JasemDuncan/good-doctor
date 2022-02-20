@@ -81,9 +81,10 @@ const BootstrapCarousel = () => {
                                     <div className='containerCarousel'>
                                         {
                                             item.map((i) => {
+                                                const path = i.id;
                                                 return (
 
-                                                    <Link className='doctorBanner' key={i.id} to={'/${i.id}'}>
+                                                    <Link className='doctorBanner' key={i.id} to={`/${path}`}>
                                                         <div>
                                                             <img src={doctor} alt="Doctor" />
                                                         </div>
