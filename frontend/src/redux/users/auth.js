@@ -1,10 +1,11 @@
 const initialState = {
 	isLogin: false,
 	user: {
+    name: '',
 		username: '',
-		email: '',
+		age: '',
 		password: '',
-		picture: '',
+		// picture: '',
 	}
 };
 const authReducer = (state = initialState, action) => {
@@ -13,10 +14,11 @@ const authReducer = (state = initialState, action) => {
 			...state.user,
 			isLogin: true,
 			user: {
+        name: action.name,
 				username: action.username,
-				email: action.email,
+				age: action.email,
 				password: action.password,
-				picture: action.picture,
+				// picture: action.picture,
 			},
 		};
 		case 'CREATE_USER_ERROR': return {
