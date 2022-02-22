@@ -20,10 +20,11 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h2>Log into Account</h2>
+    <div className="row">
+      <form onSubmit={handleSubmit} className="col-4 mx-auto d-flex flex-column justify-content-center mt-5 pt-5">
+        <h3 className="text-center my-5">Log into Account</h3>
         <input
+          className="form-control mb-3"
           type="text"
           name="username"
           placeholder="Username"
@@ -31,8 +32,8 @@ const Login = () => {
           value={username}
           required
         />
-        <input type="submit" value="Login" />
-        <Link to="/register">Register User</Link>
+        <input className="form-control btn btn-warning" type="submit" value="Login" />
+        <Link to="/register" className="d-block text-center mt-4">Register User</Link>
       </form>
     </div>
   )

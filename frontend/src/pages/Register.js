@@ -30,15 +30,15 @@ const Register = () => {
   const { name, username, age, password } = user;
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h2>New User?</h2>
-        <input type="text" name="name" placeholder="Full Name" value={name} onChange={handleChange} required />
-        <input type="text" name="username" placeholder="Username" value={username} onChange={handleChange} required />
-        <input type="number" name="age" placeholder="Age" value={age} onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Password" value={password} onChange={handleChange} required />
-        <input type="submit" value="Register"/>
-        <Link to="/login">Login</Link>
+    <div className="row">
+      <form onSubmit={handleSubmit} className="col-4 mx-auto d-flex flex-column justify-content-center mt-5">
+        <h3 className="text-center my-5">New User?</h3>
+        <input className="form-control mb-3" type="text" name="name" placeholder="Full Name" value={name} onChange={handleChange} required />
+        <input className="form-control mb-3" type="text" name="username" placeholder="Username" value={username} onChange={handleChange} required />
+        <input className="form-control mb-3" type="number" name="age" placeholder="Age" value={age} onChange={handleChange} required />
+        <input className="form-control mb-3" type="password" name="password" placeholder="Password" value={password} onChange={handleChange} required />
+        <input className="form-control btn btn-warning" type="submit" value="Register"/>
+        <Link className="d-block text-center mt-4" to="/login">Login User</Link>
       </form>
     </div>
   )
