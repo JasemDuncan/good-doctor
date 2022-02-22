@@ -104,7 +104,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    jwt (2.3.0)
     loofah (2.13.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -226,10 +225,9 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
-  jwt (~> 2.3)
   pg (~> 1.1)
   puma (~> 5.0)
-  rack-cors
+  rack-cors (~> 1.1, >= 1.1.1)
   rails (~> 7.0.2)
   selenium-webdriver
   sprockets-rails

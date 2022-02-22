@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
+  root to: 'pages#index'
+
   namespace :api do
     namespace :v1 do
+      # doctors
       resources :doctors
+      post 'delete_doctor', to: 'doctors#delete_doctor'
       
-      resources :users do
-        resources :appointments
-      end
+      # appointments
+      get 'appointments/:user_id', to: 'appointments#index'
+      resources :appointments, only: [:create, :destroy]
 
-      resource :users, only: [:create]
-      post "/login", to: "users#login"
-      get "/auto_login", to: "users#auto_login"
+      # Auth
+      post :login, to: 'auth#login'
+      post :register, to: 'auth#register'
+      post :logout, to: 'auth#logout'
+
+      # places
+      resources :locations
     end
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
 end
