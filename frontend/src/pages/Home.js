@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import storage from '../services/storageService';
 import { logoutUser } from '../services/authService';
-import { doctorsSelector, fetchDoctorsDataAsync } from '../redux/slices/doctors';
+import { doctorsSelector, fetchDoctorsDataAsync } from '../redux/reducers/doctors';
 import Nav from '../components/Nav';
 
 const Home = () => {
