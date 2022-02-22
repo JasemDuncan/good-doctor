@@ -1,127 +1,48 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import axios from 'axios';
-import { createUser } from '../redux/users/actions';
-import SideBar from '../components/SideBar';
-import './Register.css';
-class Register extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-      name: '',
-			username: '',
-			age: '',
-			password: '',
-			// picture: '',
-		};
-	}
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { createUser } from '../services/authService';
 
-	handleNameChange = (e) => {
-		this.setState({
-			name: e.target.value,
-		});
-	}
+const Register = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    name: '',
+    username: '',
+    age: '',
+    password: '',
+  });
 
-	handleUsernameChange = (e) => {
-		this.setState({
-			username: e.target.value,
-		});
-	}
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-	handleAgeChange = (e) => {
-		this.setState({
-			age: e.target.value,
-		});
-	}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createUser(user)).then(() => {
+      navigate('/');
+    });
+  };
 
-	handlePasswordChange = (e) => {
-		this.setState({
-			password: e.target.value,
-		});
-	}
+  const { name, username, age, password } = user;
 
-	// handleAvatarChange = async (e) => {
-	// 	this.setState({
-	// 		picture: e.target.files[0],
-	// 	});
-	// }
-
-	// handleImageUpload = async (imageFile) => {
-	// 	const formData = new FormData();
-	// 	formData.append('file', imageFile);
-	// 	formData.append('upload_preset', 'avatar');
-	// 	delete axios.defaults.headers.common.Authorization;
-	// 	const response = await axios({
-	// 		url: 'your cloudinary api url',
-	// 		method: 'POST',
-	// 		data: formData,
-	// 	});
-	// 	return response.data.secure_url;
-	// }
-
-	onSubmitHandler = async (e) => {
-		e.preventDefault();
-		const {
-			name, username, age, password,
-		} = this.state;
-		// let { picture } = this.state;
-		const { newUser, user } = this.props;
-
-		// const imgPath = await this.handleImageUpload(picture);
-		// picture = imgPath;
-		await newUser({
-			name, username, age, password,
-		});
-		if (user.isLogin === true) {
-			const { history } = this.props;
-			history.push('/');
-		} else {
-			this.setState(
-				{
-					message: 'welcome',
-				},
-			);
-		}
-	}
-
-render() {
-  const { message } = this.state;
-	return (
-    <>
-      <SideBar />
-      <div className="col-10">
-        <div className="row mt-5 pt-5">
-          <form onSubmit={this.onSubmitHandler} className="col-5 shadow p-5 mx-auto bg-light mt-5">
-            <h2 className="mb-5">New User?</h2>
-            <input className="mb-3 form-control" onChange={this.handleNameChange} type="text" placeholder="Full name" required />
-            <input className="mb-3 form-control" onChange={this.handleUsernameChange} type="text" required placeholder="Username" />
-            <input className="mb-3 form-control" onChange={this.handleAgeChange} type="number" placeholder="Age" required />
-            <input className="mb-3 form-control" onChange={this.handlePasswordChange} type="password" placeholder="Password" required />
-            {/* <input onChange={this.handleAvatarChange} type="file" accept="/images/*" /> */}
-            <button className="btn btn-warning px-5" type="submit">Create Account</button>
-            <Link to="/login" className="ms-4">Login</Link>
-          </form>
-        </div>
-      </div>
-    </>
-		);
-	}
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <h2>New User?</h2>
+        <input type="text" name="name" placeholder="Full Name" value={name} onChange={handleChange} required />
+        <input type="text" name="username" placeholder="Username" value={username} onChange={handleChange} required />
+        <input type="number" name="age" placeholder="Age" value={age} onChange={handleChange} required />
+        <input type="password" name="password" placeholder="Password" value={password} onChange={handleChange} required />
+        <input type="submit" value="Register"/>
+        <Link to="/login">Login</Link>
+      </form>
+    </div>
+  )
 }
 
-const mapStateToProps = state => ({
-	user: state.user,
-});
+export default Register;
 
-const mapDispatchToProps = dispatch => ({
-	newUser: estate => dispatch(createUser(estate)),
-});
-
-Register.propTypes = {
-	newUser: PropTypes.func.isRequired,
-	user: PropTypes.object.isRequired,
-	history: PropTypes.object.isRequired,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Register);

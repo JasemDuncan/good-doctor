@@ -11,30 +11,31 @@ import { useSelector } from 'react-redux';
 
 function App() {
   const doctors = useSelector((state)=> state.doctorsReducer);
+  
   return (
-    <div className="container">
-      <div className="row">         
-        <Routes>
-          <Route path="/makeAppointment" element={<AppointmentForm />} />
-          <Route path="/myAppointments" element={<MyAppointments />} />
-          <Route path="/addDoctor" element={<AddDoctor />} />
-          <Route path="/deleteDoctor" element={<DeleteDoctor />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/" exact={true} element={<Doctors />} />
-          {/* <Route path="/" element={<DoctorsDetail />} /> */}
-          { doctors.map((doctor) => (
-            <Route 
-            key={doctor}
-            path={`/${doctor.id}`}
-            element={<DoctorsDetail doctor={doctor}/>}
-            
-            />
-            ))
-          }
-        </Routes>
+      <div className="container">
+        <div className="row">         
+          <Routes>
+            <Route path="/makeAppointment" element={<AppointmentForm />} />
+            <Route path="/myAppointments" element={<MyAppointments />} />
+            <Route path="/addDoctor" element={<AddDoctor />} />
+            <Route path="/deleteDoctor" element={<DeleteDoctor />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/" exact={true} element={<Doctors />} />
+            {/* <Route path="/" element={<DoctorsDetail />} /> */}
+            { doctors.map((doctor) => (
+              <Route 
+              key={doctor}
+              path={`/${doctor.id}`}
+              element={<DoctorsDetail doctor={doctor}/>}
+              
+              />
+              ))
+            }
+          </Routes>
+        </div>
       </div>
-    </div>
   );
 }
 
