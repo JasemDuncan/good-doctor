@@ -1,20 +1,30 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import SideBar from '../components/SideBar';
+import Nav from './Nav';
+import { useDispatch, useSelector } from 'react-redux';
 import dots from '../components/dots.png';
 import doctorImg from './m.png';
+import { useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
+import { logoutUser } from '../services/authService';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const DoctorDetail = (props) => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { doctor } = props;
     const [selectedDate,setSelectedDate] =useState(null);
+
+    const handleLogOut = () => {
+        dispatch(logoutUser(navigate));
+        navigate('/login');
+    };
+
     return (
         <>
-            <SideBar />
+            <Nav handleLogOut={handleLogOut} />
             <div className='col-10 latestModelsDetails'>
                 <div className='titleContainerDetails'>
                     <div className='imgDoctorDetail'>
@@ -82,9 +92,5 @@ const DoctorDetail = (props) => {
 
     );
 }
-
-DoctorDetail.propTypes = {
-    doctor: PropTypes.instanceOf(Object).isRequired,
-};
 
 export default DoctorDetail;

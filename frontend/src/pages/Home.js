@@ -6,6 +6,9 @@ import storage from '../services/storageService';
 import { logoutUser } from '../services/authService';
 import { doctorsSelector, fetchDoctorsDataAsync } from '../redux/reducers/doctors';
 import Nav from '../components/Nav';
+import Dots from '../components/Dots';
+import { FaCaretRight, FaCaretLeft, FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import './Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -25,16 +28,22 @@ const Home = () => {
   const doctors = doctorArray.map((doctor) => (
     <Col key={doctor.id} sm={12} md={4} onClick={() => goToDetailsPage(doctor.id)}>
       <div className="d-flex flex-column justify-content-center align-items-center">
-        {/* <img src={doctor.image} alt="" className="doctor-img" /> */}
-        <h5 className="mt-3 fsize-15">{doctor.name.toUpperCase()}</h5>
-        <div className="d-flex fsize-3 mb-4 text-muted">
-          {/* <Icons /> */}
+        <img src={doctor} alt="Doctor" />
+        <h5 className="mt-3">{doctor.name.toUpperCase()}</h5>
+        <div className="d-flex">
+          <Dots />
         </div>
-        <p className="fsize-12">{doctor.specialization}</p>
-        <div>
-          <i className="fab fa-facebook border border-secondary rounded-circle p-1 me-1" />
-          <i className="fab fa-twitter border border-secondary rounded-circle p-1 me-1" />
-          <i className="fab fa-instagram border border-secondary rounded-circle p-1" />
+        <p className="mt-2">{doctor.specialization}</p>
+        <div className="mt-3 mb-5">
+          <span className="border p-3 rounded-pill text-muted me-2">
+            <FaFacebookF />
+          </span>
+          <span className="border p-3 rounded-pill text-muted me-2">
+            <FaTwitter />
+          </span>
+          <span className="border p-3 rounded-pill text-muted me-2">
+            <FaInstagram />
+          </span>
         </div>
       </div>
     </Col>
@@ -57,12 +66,11 @@ const Home = () => {
   return (
     <div className="row">
       <Nav handleLogOut={handleLogOut} />
-      
       <div className="col-10">
-        <h2 className="mt-5 fs-1 text-center">LATEST DOCTORS</h2>
-        <h4 className="text-muted my-5 text-center">Please Select A Doctor</h4>
-        <div className="d-flex fsize-5 mb-4 text-muted">
-          {/* <Icons /> */}
+        <h3 className="mt-5 pt-5 text-center">LATEST DOCTORS</h3>
+        <h6 className="text-muted mt-5 text-center">Please Select a Doctor</h6>
+        <div className="d-flex fs-5 mb-4 text-muted">
+          <Dots />
         </div>
         <div className="mt-4 w-100 d-flex justify-content-between align-items-center">
           <div id="previousButtonContainer">
@@ -72,7 +80,7 @@ const Home = () => {
               role="button"
               tabIndex="0"
               id="previousButton">
-              <i className="fa fa-caret-left fsize-25" />
+              <FaCaretLeft />
             </div>
           </div>
           <Row id="mainDiv" ref={mainDiv}>
@@ -85,7 +93,7 @@ const Home = () => {
               role="button"
               tabIndex="0"
               id="nextButton">
-              <i className="fa fa-caret-right fsize-25" />
+              <FaCaretRight />
             </div>
           </div>
         </div>

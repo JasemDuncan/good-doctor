@@ -1,13 +1,24 @@
 import React from 'react';
 import dots from '../components/dots.png';
+import { logoutUser } from '../services/authService';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import BootstrapCarousel from '../components/BootstrapCarousel';
-import SideBar from '../components/SideBar';
+import Nav from '../components/Nav';
 import '../App.css';
 
 export default function Doctors() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    dispatch(logoutUser(navigate));
+    navigate('/login');
+  };
+
   return (
     <>
-      <SideBar />
+      <Nav handleLogOut={handleLogOut} />
 
       <div className='col-10 latestModels'>
           <div className='titleContainer'>
