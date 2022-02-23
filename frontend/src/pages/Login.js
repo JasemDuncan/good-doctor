@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { loginUser } from '../services/authService';
+import Logo from '../components/logo/Logo';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,8 +22,11 @@ const Login = () => {
 
   return (
     <div className="row">
-      <form onSubmit={handleSubmit} className="col-4 mx-auto d-flex flex-column justify-content-center mt-5 pt-5">
-        <h3 className="text-center my-5">Log into Account</h3>
+      <form onSubmit={handleSubmit} className="col-3 mx-auto d-flex flex-column justify-content-center mt-5">
+        <div className="w-50 mx-auto mb-5">
+          <Logo />
+        </div>
+        {/* <h4 className="text-center my-5">Log into Account</h4> */}
         <input
           className="form-control mb-3"
           type="text"

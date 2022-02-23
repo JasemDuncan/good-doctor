@@ -55,11 +55,12 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="row">
       <Nav handleLogOut={handleLogOut} />
-      <div className="homepage">
-        <h2 className="header-text">LATEST DOCTORS</h2>
-        <h4 className="text-muted fsize-15 mb-5">Please Select A Doctor</h4>
+      
+      <div className="col-10">
+        <h2 className="mt-5 fs-1 text-center">LATEST DOCTORS</h2>
+        <h4 className="text-muted my-5 text-center">Please Select A Doctor</h4>
         <div className="d-flex fsize-5 mb-4 text-muted">
           {/* <Icons /> */}
         </div>

@@ -1,24 +1,29 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Logo from './logo/Logo';
 import './Nav.css';
 
-const Nav = () => {
+const Nav = ({ handleLogOut }) => {
   return (
-    <nav>
+    <nav className="col-2">
+      <div className="my-5">
+        <Logo />
+      </div>
       <NavLink 
         to="/"
         style={({ isActive }) => ({ 
           background: isActive ? '#98bf10' : 'none',
           color: isActive ? '#fff' : 'none'
         })}
-      >Doctors</NavLink>
+      >Home</NavLink>
       <NavLink 
-        to="/makeAppointment"
+        to="/doctors"
         style={({ isActive }) => ({ 
           background: isActive ? '#98bf10' : 'none',
           color: isActive ? '#fff' : 'none'
         })}
-      >Make Appointment</NavLink>
+      >Doctors</NavLink>
       <NavLink 
         to="/myAppointments"
         style={({ isActive }) => ({ 
@@ -33,29 +38,16 @@ const Nav = () => {
           color: isActive ? '#fff' : 'none'
         })}
       >Add Doctor</NavLink>
-      <NavLink 
-        to="/deleteDoctor"
-        style={({ isActive }) => ({ 
-          background: isActive ? '#98bf10' : 'none',
-          color: isActive ? '#fff' : 'none'
-        })}
-      >Delete Doctor</NavLink>
-      {/* <NavLink 
-        to="/login"
-        style={({ isActive }) => ({ 
-          background: isActive ? '#98bf10' : 'none',
-          color: isActive ? '#fff' : 'none'
-        })}
-      >Login</NavLink> */}
-      {/* <NavLink 
-        to="/register"
-        style={({ isActive }) => ({ 
-          background: isActive ? '#98bf10' : 'none',
-          color: isActive ? '#fff' : 'none'
-        })}
-      >Register</NavLink> */}
+      
+      <button className="btn bg-light py-3 mt-4" type="submit" onClick={handleLogOut}>
+        Log out
+      </button>
     </nav>
   )
 }
+
+Nav.propTypes = {
+  handleLogOut: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default Nav

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../services/authService';
+import Logo from '../components/logo/Logo';
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -31,8 +32,11 @@ const Register = () => {
 
   return (
     <div className="row">
-      <form onSubmit={handleSubmit} className="col-4 mx-auto d-flex flex-column justify-content-center mt-5">
-        <h3 className="text-center my-5">New User?</h3>
+      <form onSubmit={handleSubmit} className="col-3 mx-auto d-flex flex-column justify-content-center mt-5">
+        {/* <h3 className="text-center my-5">New User?</h3> */}
+        <div className="w-50 mx-auto mb-5">
+          <Logo />
+        </div>
         <input className="form-control mb-3" type="text" name="name" placeholder="Full Name" value={name} onChange={handleChange} required />
         <input className="form-control mb-3" type="text" name="username" placeholder="Username" value={username} onChange={handleChange} required />
         <input className="form-control mb-3" type="number" name="age" placeholder="Age" value={age} onChange={handleChange} required />

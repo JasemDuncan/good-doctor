@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 function App() {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <Router>      
           <Routes>
@@ -22,10 +22,9 @@ function App() {
             <Route path="/deleteDoctor" element={<DeleteDoctor />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/" exact element={<Home />} />
             <Route path="/doctors" exact element={<Doctors />} />
+            <Route path="/" exact element={<Home />} />
             {/* <Route path="/" element={<DoctorsDetail />} /> */}
-            
           </Routes>
         </Router>  
       </div>
