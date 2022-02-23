@@ -3,7 +3,7 @@ class CreateDoctors < ActiveRecord::Migration[7.0]
     create_table :doctors do |t|
       t.string :name
       t.integer :age
-      t.string :specialization
+      t.text :specialization
       t.integer :bookingFee
       t.text :biography
 
