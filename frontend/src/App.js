@@ -8,6 +8,7 @@ import MyAppointments from './pages/MyAppointments';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
+// import './App.css';
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/doctors" exact element={<Doctors />} />
             <Route path="/" exact element={<Home />} />
-            {/* <Route path="/" element={<DoctorsDetail />} /> */}
+            <Route path="/details" element={<DoctorsDetail />} />
           </Routes>
         </Router>  
       </div>

@@ -27,7 +27,7 @@ const Home = () => {
 
   const doctors = doctorArray.map((doctor) => (
     <Col key={doctor.id} sm={12} md={4} onClick={() => goToDetailsPage(doctor.id)}>
-      <div className="d-flex flex-column justify-content-center align-items-center">
+      <div className="d-flex flex-column justify-content-center align-items-center doctor-container">
         <img src={doctor} alt="Doctor" />
         <h5 className="mt-3">{doctor.name.toUpperCase()}</h5>
         <div className="d-flex">
@@ -68,8 +68,8 @@ const Home = () => {
       <Nav handleLogOut={handleLogOut} />
       <div className="col-10">
         <h3 className="mt-5 pt-5 text-center">LATEST DOCTORS</h3>
-        <h6 className="text-muted mt-5 text-center">Please Select a Doctor</h6>
-        <div className="d-flex fs-5 mb-4 text-muted">
+        <h6 className="text-muted mt-3 text-center">Please Select a Doctor</h6>
+        <div className="d-flex fs-5 mb-5 mt-4 text-muted">
           <Dots />
         </div>
         <div className="mt-4 w-100 d-flex justify-content-between align-items-center">

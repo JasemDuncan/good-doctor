@@ -16,13 +16,6 @@ const Nav = ({ handleLogOut }) => {
           background: isActive ? '#98bf10' : 'none',
           color: isActive ? '#fff' : 'none'
         })}
-      >Home</NavLink>
-      <NavLink 
-        to="/doctors"
-        style={({ isActive }) => ({ 
-          background: isActive ? '#98bf10' : 'none',
-          color: isActive ? '#fff' : 'none'
-        })}
       >Doctors</NavLink>
       <NavLink 
         to="/myAppointments"
@@ -39,7 +32,7 @@ const Nav = ({ handleLogOut }) => {
         })}
       >Add Doctor</NavLink>
       
-      <button className="btn bg-light py-3 mt-4" type="submit" onClick={handleLogOut}>
+      <button className="btn bg-light py-3 mt-4 border" type="submit" onClick={handleLogOut}>
         Log out
       </button>
     </nav>
