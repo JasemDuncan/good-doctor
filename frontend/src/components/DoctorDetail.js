@@ -14,7 +14,7 @@ function Details() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
-  const [selectedDate,setSelectedDate] =useState(null);
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const doctorArray = useSelector(doctorsSelector);
   const currentDoctor = doctorArray.find((doctor) => doctor.id === location.state.doctorId);
@@ -37,15 +37,18 @@ function Details() {
               onClick={() => {
                 navigate('/');
               }}
-              onKeyPress={() => {}}
+              onKeyPress={() => { }}
               role="button"
               tabIndex="0"
               id="backButton"
+
             >
               <FaCaretLeft />
-              <img src={currentDoctor.image_data} alt="" />
             </div>
           </div>
+        </div>
+        <div className='imgDoctorDetail'>
+          <img src={currentDoctor.image_data} alt=""  className='imgDoctor' />
         </div>
         <div className="mt-5">
           <h5 className="text-end">
@@ -77,14 +80,14 @@ function Details() {
             <div className='datePickerLabel mb-3 mt-3'>
               Book your date:
             </div>
-            <DatePicker  
+            <DatePicker
               className='datePicker px-3 py-2 form-control'
-              selected={selectedDate} 
+              selected={selectedDate}
               onChange={date => setSelectedDate(date)}
               dateFormat='dd/mm/yyyy'
               placeholderText='dd/mm/yyyy'
               minDate={new Date()}
-              filterDate={date=> date.getDay()!=0}
+              filterDate={date => date.getDay() != 0}
             />
           </div>
           <Button
