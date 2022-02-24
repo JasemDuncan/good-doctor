@@ -7,7 +7,8 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import { addDoctor } from '../redux/doctors/doctors';
+import { newDoctor } from '../redux/doctors/doctors';
+import axios from 'axios';
 
 export default function AddDoctor() {
   const dispatch = useDispatch();
@@ -23,8 +24,6 @@ export default function AddDoctor() {
   const [specialization, setSpecialization] = useState('');
   const [bookingFee, setBookingFee] = useState('');
   const [biography, setBiography] = useState();
-  // const [create_at, setCreated_at] = useState();
-  // const [updated_at, setUpdate_at] = useState();
   const [image_data, setImageData] = useState();
 
   const lblNameChanged = (e) => {
@@ -57,22 +56,36 @@ export default function AddDoctor() {
     setImageData(e.target.value);
   };
 
-  const Submit = () => {
-    const newDoctor = {
+  const createDoctor = (doctor) => {
+    axios.post('http://localhost:8000/api/v1/doctors', doctor)
+         .then((res) => {
+           if (res.status === 201) {
+             dispatch(newDoctor(doctor));
+           }
+         })
+         .catch((error) => error);
+  }
 
+  const Submit = (e) => {
+    e.preventDefault();
+
+    const doctor = {
       name,
       age,
       specialization,
       bookingFee,
       biography,
-      // create_at,
-      // updated_at,
       image_data,
     };
 
-    dispatch(CreateDoctor(newDoctor));
+    createDoctor(doctor);
     setName('');
-
+    setAge('');
+    setSpecialization('');
+    setBiography('');
+    setImageData('');
+    setBookingFee('');
+    navigate('/');
   };
 
   return (
@@ -88,7 +101,7 @@ export default function AddDoctor() {
             <Form.Control
               type="text"
               value={name}
-              placeholder="Type your specialization"
+              placeholder="Full Name"
               id="lblName"
               onChange={lblNameChanged}
               required
@@ -97,14 +110,20 @@ export default function AddDoctor() {
 
           <Form.Group className="mb-3" controlId="formGridAddress1">
             <Form.Label>Specialization</Form.Label>
-            <Form.Control
-              type="text"
-              value={specialization}
-              placeholder="Type your specialization"
-              id="lblSpecialization"
-              onChange={lblSpecializationChanged}
-              required
-            />
+            <Form.Select
+                id="lblSpecialization"
+                placeholder='Choose category'
+                value={specialization}
+                onChange={lblSpecializationChanged}
+                required
+              >
+                <option value="">Choose Specialization</option>
+                <option value="Neurologist">Neurologist</option>
+                <option value="Gynecologist">Gynecologist</option>
+                <option value="Psychiatrist">Psychiatrist</option>
+                <option value="Physicianist">Physicianist</option>
+                <option value="Radiologist">Radiologist</option>
+              </Form.Select>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formGridAddress2">
@@ -123,7 +142,7 @@ export default function AddDoctor() {
             <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>Age</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 value={age}
                 placeholder="Type your age"
                 id="lblAge"
@@ -134,22 +153,18 @@ export default function AddDoctor() {
 
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>Booking Fee</Form.Label>
-              <Form.Control
-              as="select"
-              id="chkBookingFee"
-              placeholder='Chose'
-              value={bookingFee}
-              onChange={chkBookingFeeChanged}
-              required
+              <Form.Select
+                id="chkBookingFee"
+                placeholder='Chose'
+                value={bookingFee}
+                onChange={chkBookingFeeChanged}
+                required
               >
-              </Form.Control>
-              <Form.Select>
                 <option value=""  >Choose...</option>
                 <option value="100">100</option>
                 <option value="120">120</option>
                 <option value="140">140</option>
               </Form.Select>
-
             </Form.Group>
 
             <Form.Group as={Col} controlId="formFile" className="mb-3">
@@ -158,6 +173,7 @@ export default function AddDoctor() {
                 type="file"
                 value={image_data}
                 id="imgDoctor"
+                onChange={lblImageChanged}
               />
             </Form.Group>
           </Row>
