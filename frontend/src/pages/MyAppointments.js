@@ -16,7 +16,6 @@ export default function MyAppointments() {
   return (
     <>
       <Nav handleLogOut={handleLogOut} />
-
       <div className="col-10">
         <h2 className="mt-5">My Appointments</h2>
       </div>

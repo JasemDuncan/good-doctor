@@ -6,7 +6,7 @@ import { logoutUser } from '../services/authService';
 import Nav from './Nav';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { FaCaretLeft, FaBookmark, FaArrowCircleRight } from 'react-icons/fa';
+import { FaCaretLeft, FaBookmark } from 'react-icons/fa';
 import './Details.css';
 import { doctorsSelector } from '../redux/reducers/doctors';
 
@@ -24,8 +24,8 @@ function Details() {
     navigate('/login');
   };
 
-  const goToAppointmentPage = (currentDoctor) => {
-    navigate(`/makeAppointment/${currentDoctor.id}`, { state: { currentDoctor } });
+  const goToBookingPage = (currentDoctor) => {
+    navigate(`/book/${currentDoctor.id}`, { state: { currentDoctor } });
   };
   return (
     <div className="row p-0">
@@ -68,15 +68,11 @@ function Details() {
             </tbody>
           </Table>
           <h5 className="fw-bold text-end mt-5">Biography</h5>
-          {/* <div className='discoverMore'>
-            DISCOVER MORE DOCTORS 
-            <div class="loader">Loading...</div>
-          </div> */}
           <div className='datePickerContent border-top mt-5'>
             <div className='datePickerLabel mb-3 mt-3'>
               Book your date:
             </div>
-            <DatePicker  
+            {/* <DatePicker  
               className='datePicker px-3 py-2 form-control'
               selected={selectedDate} 
               onChange={date => setSelectedDate(date)}
@@ -85,15 +81,14 @@ function Details() {
               minDate={new Date()}
               filterDate={date=> date.getDay()!=0}
             />
-          </div>
+          </div> */}
           <Button
             type="button"
             className="rounded-pill py-3 px-4 mt-5 bg-greenish"
-            onClick={() => goToAppointmentPage(currentDoctor)}
+            onClick={() => goToBookingPage(currentDoctor)}
           >
             <span className="me-2"><FaBookmark /></span>
             BOOK APPOINTMENT
-            {/* <span className="ms-2"><FaArrowCircleRight /></span> */}
           </Button>
         </div>
       </div>

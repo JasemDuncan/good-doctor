@@ -1,8 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import doctors from './reducers/doctors';
+import doctorrs from './reducers/doctorrs';
+import locations from './reducers/locations';
+import appointment from './reducers/appointments';
 
 const entities = combineReducers({
-  doctors,
+  doctorrs,
+  locations,
+  appointment,
 });
 
 export default entities;

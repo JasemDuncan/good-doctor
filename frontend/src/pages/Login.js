@@ -26,7 +26,6 @@ const Login = () => {
         <div className="w-50 mx-auto mb-5">
           <Logo />
         </div>
-        {/* <h4 className="text-center my-5">Log into Account</h4> */}
         <input
           className="form-control mb-3"
           type="text"
