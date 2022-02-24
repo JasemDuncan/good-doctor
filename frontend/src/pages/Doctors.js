@@ -1,9 +1,9 @@
 import React from 'react';
-import dots from '../components/dots.png';
+// import dots from '../components/dots.png';
 import { logoutUser } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import BootstrapCarousel from '../components/BootstrapCarousel';
+// import BootstrapCarousel from '../components/BootstrapCarousel';
 import Nav from '../components/Nav';
 import '../App.css';
 
@@ -29,11 +29,11 @@ export default function Doctors() {
               Please select a Doctor
             </div>
             <div>
-              <img src={dots} />
+              {/* <img src={dots} /> */}
             </div>
           </div>
           <div className='listDoctors'>            
-            <BootstrapCarousel/>              
+            {/* <BootstrapCarousel/>               */}
           </div>
       </div>
     </>

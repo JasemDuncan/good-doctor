@@ -80,8 +80,8 @@ function Details() {
               placeholderText='dd/mm/yyyy'
               minDate={new Date()}
               filterDate={date=> date.getDay()!=0}
-            />
-          </div> */}
+            /> */}
+          </div>
           <Button
             type="button"
             className="rounded-pill py-3 px-4 mt-5 bg-greenish"
