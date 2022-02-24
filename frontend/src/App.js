@@ -14,8 +14,8 @@ import { useSelector } from 'react-redux';
 
 function App() {
   return (
-    <div className="container">
-      <div className="row">
+    <div className="">
+      <div className="">
         <Router>      
           <Routes>
             <Route path="/book" element={<Appointment />} />

@@ -5,6 +5,7 @@ import { createAppointment } from '../services/appointmentService';
 import { logoutUser } from '../services/authService';
 import Nav from '../components/Nav';
 import storage from '../services/storageService';
+import './Book.css';
 
 export default function BookAppointment() {
   const address = useLocation();
@@ -46,8 +47,8 @@ export default function BookAppointment() {
 
   return (
     <>
-      <Nav handleLogOut={handleLogOut} />
-      <div className="col-5 mx-auto">
+      {/* <Nav handleLogOut={handleLogOut} /> */}
+      {/* <div className="col-5 mx-auto">
         <h4 className="text-center mt-5 pb-3 pt-5 border-bottom">
           {`${name}`}
         </h4>
@@ -55,8 +56,8 @@ export default function BookAppointment() {
         <div className="bg-light p-5 rounded mt-5 lh-lg">
           {biography}
         </div>
-      </div>
-      <div className="col-4">
+      </div> */}
+      {/* <div className="col-4">
         {loading ? (
           <p>Loading...</p>
         ) : (
@@ -84,6 +85,43 @@ export default function BookAppointment() {
             </div>
           </form>
         )}
+      </div> */}
+
+      <div className="book-page">
+        <div className="content">
+          <div className="details">
+            <h4 className="text-center border-bottom py-5">
+              {`Book an Appointment with ${name}`}
+            </h4>
+            <div className="text-center mt-5 lh-lg">
+              {biography}
+            </div>
+          </div>
+          <div className="">
+            {loading ? (
+              <p>Loading...</p>
+            ) : (
+              <form className="mt-5" onSubmit={handleSubmit}>
+                <div className="d-flex align-items-center justify-content-center">
+                  <input
+                    type="date"
+                    name="appointment_date"
+                    id="date"
+                    value={appointment_date}
+                    onChange={handleChange}
+                    className="py-3 bg-transparent text-center text-white rounded-pill px-5 border border-white border-2 me-2"
+                    required
+                  />
+                  <button type="submit" className="btn bg-white rounded-pill py-3 px-5 ms-2">
+                    Book
+                  </button>
+                </div>
+                <div className="">
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

@@ -6,7 +6,7 @@ import './Nav.css';
 
 const Nav = ({ handleLogOut }) => {
   return (
-    <nav className="col-2">
+    <nav className="">
       <div className="my-5">
         <Logo />
       </div>
@@ -32,7 +32,7 @@ const Nav = ({ handleLogOut }) => {
         })}
       >Add Doctor</NavLink>
       
-      <button className="btn bg-light py-3 mt-4 border" type="submit" onClick={handleLogOut}>
+      <button className="btn bg-light py-3 mt-4 rounded-0" type="submit" onClick={handleLogOut}>
         Log out
       </button>
     </nav>
