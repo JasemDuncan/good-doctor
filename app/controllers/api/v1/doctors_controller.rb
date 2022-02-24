@@ -36,7 +36,7 @@ class Api::V1::DoctorsController < ApplicationController
       :specialization,
       :bookingFee,
       :biography,
-      :image
+      :image_data
     )
   end
 end

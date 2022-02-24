@@ -7,6 +7,12 @@
   display: block;
 }
 
+.profile-doc {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
 #previousButtonContainer,
 #nextButtonContainer {
   display: inline-block;

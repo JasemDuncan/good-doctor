@@ -43,6 +43,7 @@ function Details() {
               id="backButton"
             >
               <FaCaretLeft />
+              <img src={currentDoctor.image_data} alt="" />
             </div>
           </div>
         </div>

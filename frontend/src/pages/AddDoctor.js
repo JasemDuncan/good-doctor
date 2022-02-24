@@ -167,10 +167,20 @@ export default function AddDoctor() {
               </Form.Select>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formFile" className="mb-3">
+            {/* <Form.Group as={Col} controlId="formFile" className="mb-3">
               <Form.Label>Default file input example</Form.Label>
               <Form.Control
                 type="file"
+                value={image_data}
+                id="imgDoctor"
+                onChange={lblImageChanged}
+              />
+            </Form.Group> */}
+
+            <Form.Group as={Col} controlId="formFile" className="mb-3">
+              <Form.Label>Profile image URL</Form.Label>
+              <Form.Control
+                type="text"
                 value={image_data}
                 id="imgDoctor"
                 onChange={lblImageChanged}
