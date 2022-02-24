@@ -6,4 +6,7 @@ class Doctor < ApplicationRecord
   validates :specialization, presence: true
   validates :bookingFee, presence: true
   validates :biography, presence: true
+
+  include ImageUploader::Attachment(:image)
+  
 end
