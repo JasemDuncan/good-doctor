@@ -28,7 +28,7 @@ const Home = () => {
   const doctors = doctorArray.map((doctor) => (
     <Col key={doctor.id} sm={12} md={4} onClick={() => goToDetailsPage(doctor.id)}>
       <div className="d-flex flex-column justify-content-center align-items-center doctor-container">
-        <img src={doctor} alt="Doctor" />
+        <img src={doctor.image_data} alt="Doctor" className="profile-doc" />
         <h5 className="mt-3">{doctor.name.toUpperCase()}</h5>
         <div className="d-flex">
           <Dots />
