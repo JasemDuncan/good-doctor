@@ -33,7 +33,6 @@ const Register = () => {
   return (
     <div className="row">
       <form onSubmit={handleSubmit} className="col-3 mx-auto d-flex flex-column justify-content-center mt-5">
-        {/* <h3 className="text-center my-5">New User?</h3> */}
         <div className="w-50 mx-auto mb-5">
           <Logo />
         </div>

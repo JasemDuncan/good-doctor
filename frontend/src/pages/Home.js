@@ -64,9 +64,9 @@ const Home = () => {
   };
 
   return (
-    <div className="row">
+    <div className="home-page">
       <Nav handleLogOut={handleLogOut} />
-      <div className="col-10">
+      <div className="">
         <h3 className="mt-5 pt-5 text-center">LATEST DOCTORS</h3>
         <h6 className="text-muted mt-3 text-center">Please Select a Doctor</h6>
         <div className="d-flex fs-5 mb-5 mt-4 text-muted">

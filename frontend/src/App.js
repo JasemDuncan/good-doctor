@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddDoctor from './pages/AddDoctor';
-import AppointmentForm from './pages/AppointmentForm';
+import Appointment from './pages/Appointment';
+import BookAppointment from './pages/BookAppointment';
 import DeleteDoctor from './pages/DeleteDoctor';
 import DoctorsDetail from './components/DoctorDetail';
 import MyAppointments from './pages/MyAppointments';
@@ -11,11 +12,12 @@ import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="container">
-      <div className="row">
+    <div className="">
+      <div className="">
         <Router>      
           <Routes>
-            <Route path="/makeAppointment" element={<AppointmentForm />} />
+            <Route path="/book" element={<Appointment />} />
+            <Route path="/book/:id" element={<BookAppointment />} />
             <Route path="/myAppointments" element={<MyAppointments />} />
             <Route path="/addDoctor" element={<AddDoctor />} />
             <Route path="/deleteDoctor" element={<DeleteDoctor />} />

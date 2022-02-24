@@ -78,3 +78,4 @@ end
 
 # custom gems
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
+gem 'faker', '~> 2.19'
