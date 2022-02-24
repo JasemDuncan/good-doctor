@@ -72,5 +72,5 @@ group :test do
 end
 
 # custom gems
-gem 'rack-cors'
-gem 'jwt', '~> 2.3'
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'
+gem 'faker', '~> 2.19'

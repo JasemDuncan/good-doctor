@@ -1,36 +1,51 @@
-import React from 'react';
-import SideBar from '../components/SideBar';
-import './Register.css';
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { createUser } from '../services/authService';
+import Logo from '../components/logo/Logo';
 
-export default function Register() {
+const Register = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    name: '',
+    username: '',
+    age: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createUser(user)).then(() => {
+      navigate('/');
+    });
+  };
+
+  const { name, username, age, password } = user;
+
   return (
-    <>
-      <SideBar />
-
-      <div className="col-10">
-        <form>
-          <section className="row">
-            <div className="col-5 mx-auto">
-              <section className="bg-light mb-5 p-5">
-                <h2 className="mb-4 text-center">New User?</h2>
-                <div className="mb-3">
-                  <input name="fullName" className="form-control" placeholder="Your Name" type="text" value="" />
-                </div>
-                <div className="mb-3">
-                  <input name="username" className="form-control" placeholder="Username" type="text" value="" />
-                </div>
-                <div className="mb-3">
-                  <input name="age" className="form-control" placeholder="Your Age" type="number" value="" />
-                </div>
-                <div className="mb-3">
-                  <input name="password" className="form-control" placeholder="Password" type="password" value="" />
-                </div>
-                <button type="submit" className="btn btn-warning w-100">Register</button>
-              </section>
-            </div>
-          </section>
-        </form>
-      </div>
-    </>
+    <div className="row">
+      <form onSubmit={handleSubmit} className="col-3 mx-auto d-flex flex-column justify-content-center mt-5">
+        <div className="w-50 mx-auto mb-5">
+          <Logo />
+        </div>
+        <input className="form-control mb-3" type="text" name="name" placeholder="Full Name" value={name} onChange={handleChange} required />
+        <input className="form-control mb-3" type="text" name="username" placeholder="Username" value={username} onChange={handleChange} required />
+        <input className="form-control mb-3" type="number" name="age" placeholder="Age" value={age} onChange={handleChange} required />
+        <input className="form-control mb-3" type="password" name="password" placeholder="Password" value={password} onChange={handleChange} required />
+        <input className="form-control btn btn-warning" type="submit" value="Register"/>
+        <Link className="d-block text-center mt-4" to="/login">Login User</Link>
+      </form>
+    </div>
   )
 }
+
+export default Register;
+
