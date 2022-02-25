@@ -34,7 +34,7 @@ Doctor.create(
     },
     {  
       name: 'Dr. Khalid Abbed',
-      age: 34,
+      age: 33,
       specialization: 'Neurosurgery',
       bookingFee: 250,
       image_data: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/the-good-doctor-cast-antonia-thomas-claire-browne-1609968592.jpg?crop=0.906xw:0.727xh;0,0.0382xh&resize=480:*',
@@ -42,7 +42,7 @@ Doctor.create(
     },
     {  
       name: 'Dr. Naresh Trehan',
-      age: 51,
+      age: 54,
       specialization: 'Ophthalmology',
       bookingFee: 99,
       image_data: 'https://cdn1.edgedatg.com/aws/v2/abc/TheGoodDoctor/person/2057217/940a0a319f940a38d6740423183e5df1/330x330-Q90_940a0a319f940a38d6740423183e5df1.jpg',
@@ -50,7 +50,7 @@ Doctor.create(
     },
     {  
       name: 'Dr. Arthur Reese Abright',
-      age: 46,
+      age: 40,
       specialization: 'Psychiatry',
       bookingFee: 129,
       image_data: 'https://cdn1.edgedatg.com/aws/v2/abc/TheGoodDoctor/person/2198201/38d475919f6c51848247b23697701a91/579x579-Q90_38d475919f6c51848247b23697701a91.jpg',
