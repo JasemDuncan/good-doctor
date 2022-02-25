@@ -45,3 +45,8 @@
   width: 70%;
   border-radius: 50%;
 }
+
+.details-page {
+  height: 100vh;
+  display: flex;
+}

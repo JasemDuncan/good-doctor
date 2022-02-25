@@ -28,7 +28,7 @@ function Details() {
     navigate(`/book/${currentDoctor.id}`, { state: { currentDoctor } });
   };
   return (
-    <div className="row p-0">
+    <div className="details-page">
       <Nav handleLogOut={handleLogOut} />
       <div className="col-10 d-flex align-items-center justify-content-between p-4">
         <div className="image-holder">

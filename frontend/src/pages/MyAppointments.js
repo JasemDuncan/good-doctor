@@ -5,7 +5,7 @@ import { Table } from "react-bootstrap";
 import { getDoctors } from "../services/doctorsService";
 import { logoutUser } from '../services/authService';
 import storage from "../services/storageService";
-import Nav from '../components/Nav';
+import './Appointments.css';
 
 export default function MyAppointments() {
   const navigate = useNavigate();
@@ -18,6 +18,10 @@ export default function MyAppointments() {
     dispatch(logoutUser(navigate));
     navigate('/login');
   };
+
+  const goBackBtn = () => {
+    navigate('/');
+  }
 
   const loadDoctors = async () => {
     try {
@@ -61,14 +65,14 @@ export default function MyAppointments() {
 
   return (
     <>
-    <Nav handleLogOut={handleLogOut} />
-    <div className='col-8 mx-auto'>
-      <div>
-        <div className='pt-5'>
+    <div className='appointments-page'>
+      <button className="back-btn" onClick={goBackBtn}>Back to Dashboard</button>
+      <div className="content">
+        <div className=''>
           <h3 className='my-5 text-center' id=''>
             MY APPOINTMENTS
           </h3>
-          <Table className='mt-3 table-bordered'>
+          <Table className='mt-3 table-bordered text-white'>
             <thead>
               <tr>
                 <td>#</td>
