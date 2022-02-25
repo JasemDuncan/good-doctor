@@ -1,5 +1,4 @@
 class Api::V1::AppointmentsController < ApplicationController
-
   def index
     if params[:user_id]
       @appointments = Appointment.where(user_id: params[:user_id])

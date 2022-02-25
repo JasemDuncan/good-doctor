@@ -1,5 +1,4 @@
 class Api::V1::AuthController < ApplicationController
-
   def login
     @user = User.where(username: params[:username]).first
 

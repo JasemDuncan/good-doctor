@@ -70,6 +70,9 @@ Please checkout out Kanban project here - [Kanban link](https://github.com/Jasem
 
 Here is the link to the a link to the screenshot of the initial state of our Kanban board [Kanban setup](./setup_kanban_board.md).
 
+## Original Kanban board image
+![](./setup_kanban_board.png)
+
 Our team comprises of 2 members
  - [Jasem Duncan Valencia](https://github.com/JasemDuncan)
  - [Nakitto Catherine](https://github.com/Cathella)
