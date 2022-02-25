@@ -16,13 +16,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_23_211721) do
 
   create_table "appointments", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "location_id", null: false
     t.bigint "doctor_id", null: false
     t.string "appointment_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
-    t.index ["location_id"], name: "index_appointments_on_location_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
@@ -54,6 +52,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_23_211721) do
   end
 
   add_foreign_key "appointments", "doctors"
-  add_foreign_key "appointments", "locations"
   add_foreign_key "appointments", "users"
 end
