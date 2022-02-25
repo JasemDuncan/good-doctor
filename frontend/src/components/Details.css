@@ -1,0 +1,51 @@
+#backButtonContainer {
+  align-self: center;
+  margin-bottom: 15px;
+}
+
+#backButton {
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  #backButtonContainer {
+    display: inline-block;
+    width: 75px;
+    align-self: flex-start;
+  }
+
+  #backButton {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+    color: white;
+    background-color: #97bf0e;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.imgDoctorDetail {
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgDoctor {
+  /* background-color: rebeccapurple; */
+  width: 70%;
+  border-radius: 50%;
+}
+
+.details-page {
+  height: 100vh;
+  display: flex;
+}

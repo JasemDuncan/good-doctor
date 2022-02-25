@@ -1,0 +1,80 @@
+.home-page {
+  height: 100vh;
+  display: flex;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.contents {
+  display: block;
+}
+
+.profile-doc {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+#previousButtonContainer,
+#nextButtonContainer {
+  display: inline-block;
+  width: 75px;
+}
+
+#mainDiv {
+  display: inline-flex;
+  width: calc(80vw - 150px);
+  text-align: center;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#mainDiv::-webkit-scrollbar {
+  display: none;
+}
+
+#previousButton {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+  color: white;
+  background-color: #97bf0f;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+#nextButton {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  color: white;
+  background-color: #97bf0f;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.bg-greenish {
+  background: #97bf0e;
+  border: 1px solid #97bf0f;
+}
+
+.doctor-container {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .contents {
+    display: flex;
+  }
+}
