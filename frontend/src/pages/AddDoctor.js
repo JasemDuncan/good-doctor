@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { newDoctor } from '../redux/doctors/doctors';
 import axios from 'axios';
+import './Home.css';
 
 export default function AddDoctor() {
   const dispatch = useDispatch();
@@ -89,11 +90,11 @@ export default function AddDoctor() {
   };
 
   return (
-    <>
+    <div className="home-page">
       <Nav handleLogOut={handleLogOut} />
-
-      <div className="col-10">
-        <h2 className="mt-5">Form to Add Doctors</h2>
+      <div className="w-50 mx-auto">
+        <div className="">
+        <h4 className="mt-5 fw-bold text-uppercase text-center mb-5">Add Doctor</h4>
 
         <Form action="/" onSubmit={Submit}>
           <Form.Group className="mb-3" controlId="formGridAddress1">
@@ -167,16 +168,6 @@ export default function AddDoctor() {
               </Form.Select>
             </Form.Group>
 
-            {/* <Form.Group as={Col} controlId="formFile" className="mb-3">
-              <Form.Label>Default file input example</Form.Label>
-              <Form.Control
-                type="file"
-                value={image_data}
-                id="imgDoctor"
-                onChange={lblImageChanged}
-              />
-            </Form.Group> */}
-
             <Form.Group as={Col} controlId="formFile" className="mb-3">
               <Form.Label>Profile image URL</Form.Label>
               <Form.Control
@@ -188,15 +179,12 @@ export default function AddDoctor() {
             </Form.Group>
           </Row>
 
-          <Button variant="primary" type="submit" value="Submit" onClick={Submit} className='rounded-pill py-3 px-4 mt-5 bg-greenish'>
+          <Button variant="primary" type="submit" value="Submit" onClick={Submit} className='rounded-pill py-3 px-5 bg-greenish'>
             Submit
           </Button>
         </Form>
-
+        </div>
       </div>
-
-
-
-    </>
+    </div>
   )
 }
