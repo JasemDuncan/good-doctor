@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const apiLink = 'http://localhost:8000/api/v1/';
+const apiLink = 'http://localhost:8000/api/v1';
 const initialState = {
   allDoctors: [],
 };
