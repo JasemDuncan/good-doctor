@@ -1,6 +1,6 @@
 #backButtonContainer {
   align-self: center;
-  margin-bottom: 15px;  
+  margin-bottom: 15px;
 }
 
 #backButton {
@@ -14,7 +14,7 @@
   #backButtonContainer {
     display: inline-block;
     width: 75px;
-    align-self: flex-start;    
+    align-self: flex-start;
   }
 
   #backButton {
@@ -31,13 +31,12 @@
   }
 }
 
-.imgDoctorDetail{
+.imgDoctorDetail {
   /* background-color: red; */
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .imgDoctor {

@@ -1,21 +1,21 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import HelloWorld from './HelloWorld'
+import HelloWorld from './HelloWorld';
 
 class App extends React.Component {
-  render () {
+  render() {
     return (
       <BrowserRouter>
         <Routes>
-          <Route exec path="/" render= {() => ("Homeee")}></Route>
-          <Route path="/hello" render= {() => <HelloWorld greeting="Friend"/>}></Route>
+          <Route exec path="/" render={() => ('Homeee')} />
+          <Route path="/hello" render={() => <HelloWorld greeting="Friend" />} />
         </Routes>
       </BrowserRouter>
     );
   }
 }
 
-export default App
+export default App;

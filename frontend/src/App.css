@@ -2,11 +2,13 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
-.subContainer{
+.subContainer {
   height: 768px;
+
   /* background-color: rgb(201, 197, 197); */
 }
-.logoNavContainer{
+
+.logoNavContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -14,12 +16,12 @@ body {
 
 .logoContainer {
   /* background-color: red; */
-  height: 160px;  
+  height: 160px;
   font-weight: bold;
   font-size: 30px;
 }
 
-.latestModels{
+.latestModels {
   /* background-color: azure; */
   display: flex;
   flex-direction: column;
@@ -27,7 +29,7 @@ body {
   align-items: center;
 }
 
-.titleContainer{
+.titleContainer {
   /* background-color: blanchedalmond; */
   width: 100%;
   height: 80px;
@@ -37,19 +39,20 @@ body {
   align-items: center;
 }
 
-.titleDoctors{
+.titleDoctors {
   font-weight: bolder;
   font-size: 45px;
 }
 
-.titleDoctorsDescription{
+.titleDoctorsDescription {
   font-weight: bold;
   font-size: 18px;
   color: rgb(202, 199, 199);
 }
 
-.listDoctors{
+.listDoctors {
   width: 100%;
+
   /* background-color: burlywood; */
   height: 350px;
 }
@@ -61,7 +64,7 @@ body {
   position: relative;
 }
 
-.container2{
+.container2 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -69,38 +72,38 @@ body {
   padding-bottom: 50px;
 }
 
-.carousel-inner{
+.carousel-inner {
   background-color: white;
 }
 
-.containerCarousel {   
+.containerCarousel {
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
   height: 100%;
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
 }
 
-.doctorBanner{
+.doctorBanner {
   display: flex;
   flex-direction: column;
-  width: 33%;  
+  width: 33%;
   height: 100%;
   justify-content: center;
   align-items: center;
-  margin-left: 20px;  
+  margin-left: 20px;
   text-decoration: none;
 }
 
-.nameDoctor{  
+.nameDoctor {
   width: auto;
   font-weight: bold;
   color: black;
   font-size: 20px;
 }
 
-.descriptionDoctor{
+.descriptionDoctor {
   width: 100%;
   font-weight: 500;
   font-size: 14px;
@@ -108,21 +111,23 @@ body {
   color: rgb(202, 199, 199);
 }
 
-.latestModelsDetails{  
+.latestModelsDetails {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.titleContainerDetails{
+.titleContainerDetails {
   /* background-color: blanchedalmond; */
-  width: 100%;  
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
+
   /* align-items: center; */
 }
+
 .imgDoctorDetail {
   /* background-color: aqua; */
   display: flex;
@@ -133,6 +138,7 @@ body {
 .doctorsDetails {
   display: flex;
   flex-direction: column;
+
   /* background-color: green; */
   width: 25%;
   height: auto;
@@ -145,7 +151,7 @@ body {
   align-items: flex-end;
 }
 
-.titleDoctorsDetails{
+.titleDoctorsDetails {
   font-weight: 500;
   font-size: 25px;
   text-transform: uppercase;
@@ -167,20 +173,20 @@ body {
   font-weight: bolder;
   display: flex;
   flex-direction: column;
-  
   align-items: center;
+
   /* background-color: #777; */
 }
 
-
 .loader,
-.loader:after {
+.loader::after {
   border-radius: 50%;
   width: 10em;
   height: 10em;
 }
+
 .loader {
-  margin: 20px ;
+  margin: 20px;
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
@@ -194,21 +200,25 @@ body {
   -webkit-animation: load8 1.1s infinite linear;
   animation: load8 1.1s infinite linear;
 }
+
 @-webkit-keyframes load8 {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
+
 @keyframes load8 {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -227,6 +237,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+
   /* background-color: rebeccapurple; */
   height: 70px;
 }
@@ -239,5 +250,5 @@ body {
 .datePicker {
   width: 100%;
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
 }

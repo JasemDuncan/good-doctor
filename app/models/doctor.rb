@@ -9,5 +9,4 @@ class Doctor < ApplicationRecord
   validates :image_data, presence: true
 
   # include ImageUploader::Attachment(:image)
-  
 end
