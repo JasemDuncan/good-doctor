@@ -3,7 +3,7 @@ import axios from 'axios';
 //Constants
 const ADD_DOCTOR = 'ADD_DOCTOR';
 const REMOVE_DOCTOR = 'REMOVE_DOCTOR';
-const url = 'https://good-doctor-capstone.herokuapp.com/doctors';
+const url = 'http://localhost:8000/api/v1/doctors';
 const initialState = [];
 
 // Actions

@@ -33,7 +33,7 @@ export default function MyAppointments() {
 
   const getAppointments = async () => {
     let allAppointments = await fetch(
-      `https://good-doctor-capstone.herokuapp.com/appointments/${currentUser.id}`
+      `http://localhost:8000/api/v1/appointments/${currentUser.id}`
     );
     allAppointments = await allAppointments.json();
     setAppointments(allAppointments.data);

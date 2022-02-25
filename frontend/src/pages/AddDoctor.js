@@ -58,7 +58,7 @@ export default function AddDoctor() {
   };
 
   const createDoctor = (doctor) => {
-    axios.post('https://good-doctor-capstone.herokuapp.com/doctors', doctor)
+    axios.post('http://localhost:8000/api/v1/doctors', doctor)
          .then((res) => {
            if (res.status === 201) {
              dispatch(newDoctor(doctor));
